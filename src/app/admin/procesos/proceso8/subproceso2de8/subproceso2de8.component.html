@@ -1,0 +1,162 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12">
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="descargar()">
+                Descargar Boleta
+              </button>
+            </div>
+            <br>
+            <br>
+            <div id="parapdf" class="col-12 shadow p-5 mb-2 bg-white rounded rounded-lg border border-light fondo">
+              <div class="row">
+                <div class="col-12 col-md-3 col-lg-4">
+                  <img id="logo" src="../../../../../assets/img/logo/logo.png">
+                </div>
+                <div class="col-12 col-md-9 col-lg-8 text-center">
+                  <h1>
+                    THE CHAMPIONS
+                  </h1>
+                  <p>
+                    De: Pachari Galvez, Angela Nicol
+                  </p>
+                  <p>
+                    Calle la florida N°297 Huancayo
+                  </p>
+                  <p>
+                    Celular: 902834714
+                  </p>
+                </div>
+                <br>
+                <br>
+                <div class="col-12 col-md-4 col-lg-6">
+                  <table class="table table-bordered table-light border-dark text-center">
+                    <tr>
+                      <th>
+                        RUC : 10727782384
+                      </th>
+                    </tr>
+                    <tr class="table-success">
+                      <th>
+                        BOLETA DE VENTA
+                      </th>
+                    </tr>
+                    <tr>
+                      <th>
+                        N° {{elcodigo}}
+                      </th>
+                    </tr>
+                  </table>
+                </div>
+                <div class="col-12 col-md-8 col-lg-6">
+                  <p>Cliente : {{ticket.cliente.Fullname}}</p>
+                  <p>RUC: {{ticket.cliente.Numerodocumento}}</p>
+                  <p>Fecha : {{ticket.FechaReserva | date: 'dd-MM-yyyy'}}</p>
+                </div>
+                <br>
+                <br>
+                <div class="col-12">
+                  <table class="table table-bordered border-dark">
+                    <thead>
+                      <tr>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <td>Reserva de la cancha durante todo el dia => 5:00 am hasta 11:00 pm</td>
+                      <td>{{ticket.Pago}}</td>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <p class="text-right">Total:  S/. {{ticket.Pago}}.00</p>
+            </div>
+            <div class="col-lg-6 col-12">
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="enableatender()">
+                Atender
+              </button>
+            </div>
+            <div class="col-lg-6 col-12">
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="enablepostergar()">
+                Postergar
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-lg-6" *ngIf="atencion">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="text-center">
+                    Atender
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <table class="table table-bordered border-dark">
+                    <thead>
+                      <tr>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <td>Reserva de la cancha durante todo el dia => 5:00 am hasta 11:00 pm</td>
+                      <td>{{ticket.Pago}}</td>
+                    </tbody>
+                  </table>
+                  <br>
+                  <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="atender()">
+                    Atender Reserva
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6" *ngIf="postergacion">
+              <div class="card">
+                <div class="card-header">
+                  <h3 class="text-center">
+                    Postergar
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <form id="formPostpone" class="was-validated" name="formPostpone">
+                    <div class="form-group">
+                      <label class="form-col-form-label" for="datito">
+                        <strong>
+                          Fecha de Postergacion
+                        </strong>
+                      </label>
+                      <input type="date" class="form-control" id="datito" name="datito" [min]="fechaActual" [(ngModel)]="datito" required>
+                      <div class="valid-feedback">
+                        Campo rellenado.
+                      </div>
+                      <div class="invalid-feedback">
+                        Por favor rellene el campo.
+                      </div>
+                    </div>
+                    <div>
+                      <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="validar(datito)">
+                        Validar Fecha
+                      </button>
+                    </div>
+                    <br>
+                    <div>
+                      <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="seguirpostergando(datito)">
+                        Postergar
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

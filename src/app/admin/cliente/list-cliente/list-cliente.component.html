@@ -1,0 +1,137 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="crear()" type="button" class="btn btn-pill btn-block btn-success">
+            Crear
+          </button>
+          <button *ngIf="lista" (click)="buscar()" type="button" class="btn btn-pill btn-block btn-warning">
+            Buscar
+          </button>
+          <button *ngIf="busqueda" (click)="ver()" type="button" class="btn btn-pill btn-block btn-info">
+            Ver lista
+          </button>
+        </div>
+        <div class="card-body">
+          <form *ngIf="busqueda" id="formSearchCliente" class="was-validated" name="formSearchCliente">
+            <div class="form-group">
+              <label class="form-col-form-label" for="Dato">
+                <strong>
+                  Poner el numero de documento o correo
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Dato" name="Dato" [(ngModel)]="dato" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-6 col-12 campo">
+                <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="searchEmailCliente()">
+                  Por Correo
+                </button>
+              </div>
+              <div class="col-lg-6 col-12 campo">
+                <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="searchDocCliente()">
+                  Documento
+                </button>
+              </div>
+            </div>
+            <br>
+          </form>
+          <div *ngIf="lista && !porimprimir" class="row">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Apellidos y Nombres</th>
+                  <th>Numero Documento</th>
+                  <th>Correo</th>
+                  <th>  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let obj of clientes">
+                  <td>{{obj.Fullname}}</td>
+                  <td>{{obj.Numerodocumento}}</td>
+                  <td>{{obj.Email}}</td>
+                  <td>
+                    <button *ngIf="!porimprimir" (click)="editar(obj.id)" type="button" class="btn btn-pill btn-block btn-info">
+                      Editar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="clientlist" *ngIf="porimprimir" class="row p-2">
+            <img src="../../../../assets/img/logo/logo.png" width="100" height="100" alt="" srcset="">
+            <br>
+            <br>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Apellidos y Nombres</th>
+                  <th>Numero Documento</th>
+                  <th>Correo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let obj of clientes">
+                  <td>{{obj.Fullname}}</td>
+                  <td>{{obj.Numerodocumento}}</td>
+                  <td>{{obj.Email}}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="row">
+            <div *ngIf="lista" class="col-12">
+              <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="pre()">
+                Para Imprimir
+              </button>
+            </div>
+            <div *ngIf="porimprimir" class="col-12">
+              <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="onPrint()">
+                Para Imprimir
+              </button>
+            </div>
+            <div *ngIf="porimprimir" class="col-12">
+              <button type="button" class="btn btn-outline-warning btn-lg btn-block btn-pill" (click)="terminar()">
+                Cancelar
+              </button>
+            </div>
+          </div>
+          <div class="col-12" *ngIf="resultado">
+            <div>
+              <h4 class="text-center">
+                Datos:
+              </h4>
+            </div>
+            <div class="text-center">
+              <h3>
+                Nombres y Apellidos:
+              </h3>
+              <h3>
+                {{cliente.Fullname}}
+              </h3>
+              <h3>
+                Correo:
+              </h3>
+              <h3>
+                {{cliente.Email}}
+              </h3>
+            </div>
+            <button (click)="editarsearch()" type="button" class="btn btn-pill btn-block btn-info">
+              Editar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

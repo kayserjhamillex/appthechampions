@@ -1,0 +1,44 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="crear()" type="button" class="btn btn-pill btn-block btn-success">
+            Crear
+          </button>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Titulo</th>
+                <th>Subtitulo</th>
+                <th>Resumen</th>
+                <th>  </th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of blog">
+                <td>{{obj.Titulo}}</td>
+                <td>{{obj.Subtitulo}}</td>
+                <td>{{obj.Resumen}}</td>
+                <td>
+                  <button (click)="editar(obj.id)" type="button" class="btn btn-pill btn-block btn-info">
+                    Editar
+                  </button>
+                </td>
+                <td>
+                  <button (click)="eliminar(obj.id)" type="button" class="btn btn-pill btn-block btn-warning">
+                    Elininar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

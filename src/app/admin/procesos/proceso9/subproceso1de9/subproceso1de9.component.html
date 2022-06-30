@@ -1,0 +1,108 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-8 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Reservas por Pagar
+          </h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Pago</th>
+                <th>Caduca en</th>
+                <th>   </th>
+                <th>   </th>
+                <th>   </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of lasreservas">
+                <td>{{obj.cliente.Fullname}}</td>
+                <td>{{obj.FechaReserva | date:'dd-MM-yyyy'}}</td>
+                <td>{{obj.Pago}}</td>
+                <td>{{obj.createdAt}}</td>
+                <td>
+                  <button (click)="borrar(obj.id)" type="button" class="btn btn-pill btn-block btn-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </td>
+                <td>
+                  <button (click)="seleccionar(obj.ClienteId)" type="button" class="btn btn-pill btn-block btn-info">
+                    <i class="far fa-comment"></i>
+                  </button>
+                </td>
+                <td>
+                  <button (click)="pagado(obj.id)" type="button" class="btn btn-pill btn-block btn-success">
+                    <i class="fas fa-hand-holding-usd"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+      <div class="card" id="elchat">
+        <div class="card-header">
+          <h4 class="text-center">
+            Chat de: {{chatmodel1.cliente.Fullname}}
+          </h4>
+        </div>
+        <div class="card-body overflow-auto">
+          <div class="conteiner">
+            <div class="row">
+              <div class="col-12" *ngFor="let item of mensajes">
+                <div
+                class="shadow-sm col-10 m-auto p-2 border border-primary rounded text-primary d-flex justify-content-start"
+                *ngIf="item.Direccion === 'izquierda'">
+                  <h3 *ngIf="item.Mensaje.substring(0,5) !== 'https'">
+                    {{item.Mensaje}}
+                  </h3>
+                  <img *ngIf="item.Mensaje.substring(0,5) === 'https'" [src]="item.Mensaje" alt="">
+                </div>
+                <br>
+                <div
+                class="shadow-sm col-10 m-auto p-2 border border-success rounded text-success d-flex justify-content-end"
+                *ngIf="item.Direccion === 'derecha'">
+                  <h3 *ngIf="item.Mensaje.substring(0,5) !== 'https'">
+                    {{item.Mensaje}}
+                  </h3>
+                  <img *ngIf="item.Mensaje.substring(0,5) === 'https'" [src]="item.Mensaje" alt="">
+                </div>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <form class="was-validated">
+            <div class="row">
+              <div class="col-10">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="Fullname" name="Fullname" [(ngModel)]="mensaje.Mensaje" required>
+                  <div class="valid-feedback">
+                    Campo rellenado.
+                  </div>
+                  <div class="invalid-feedback">
+                    Por favor rellene el campo.
+                  </div>
+                </div>
+              </div>
+              <div class="col-2">
+                <button type="submit" class="btn btn-outline-info btn-lg btn-block btn-pill" (click)="anwerchat(mensaje.Mensaje)">
+                  <i class="far fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

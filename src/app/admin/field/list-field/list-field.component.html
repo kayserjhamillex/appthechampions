@@ -1,0 +1,39 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="crear()" type="button" class="btn btn-pill btn-block btn-success">
+            Crear
+          </button>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Resumen</th>
+                <th>Precio Noche</th>
+                <th>Precio Dia</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of fields">
+                <td>{{obj.Name}}</td>
+                <td>{{obj.Resumen}}</td>
+                <td>s/. {{obj.Precio1}}.00</td>
+                <td>s/. {{obj.Precio2}}.00</td>
+                <td>
+                  <button (click)="editar(obj.id)" type="button" class="btn btn-pill btn-block btn-info">
+                    Editar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

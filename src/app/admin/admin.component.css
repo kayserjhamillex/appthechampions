@@ -1,0 +1,75 @@
+body app-root app-admin app-header .d-md-block {
+  display: none;
+}
+
+@media (min-width: 768px)
+{
+  body app-root app-admin app-header .d-md-block
+  {
+    display: none;
+  }
+}
+
+.buttom-btn{
+  position: fixed;
+  z-index: 2147483647;
+  bottom: 30px;
+  right: 30px;
+  background: #38b143;
+  color: #fff;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  opacity: 1;
+}
+.buttom-btn i{
+  font-size: 30px;
+}
+.buttom-btn:hover{
+  background:#38b143;
+  color: #fff
+}
+
+.helpdesk{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2147483647;
+  color: #fff;
+  padding: 21px;
+  text-align: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 2px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  opacity: 1;
+}
+/* .helpdesk i {
+  color: red;
+} */
+/* .chatexit{
+  background: #bb22ae;
+  color: #fff;
+  padding: 10px;
+  text-align: right;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.color{
+  background: #fff;
+  background-size: cover;
+  width: 100%;
+}
+.colortext {
+  color: #38b143;
+} */

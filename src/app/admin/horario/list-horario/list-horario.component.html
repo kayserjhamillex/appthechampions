@@ -1,0 +1,90 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Elegir Field
+          </h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of fields">
+                <td>{{obj.Name}}</td>
+                <td>
+                  <button (click)="elejir(obj.id)" type="button" class="btn btn-outline-info btn-lg btn-block btn-pill">
+                    Elejir
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Elegir dia de atencio
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="col-12">
+            <div class="col-12 p-1" *ngFor="let obj of dias">
+              <button type="submit" class="btn btn-outline-warning btn-lg btn-block btn-pill" (click)="diaelegido(obj.name)">
+                {{obj.name}}
+              </button>
+            </div>
+          </div>
+          <br>
+          <div class="col-12">
+            <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="viewhorario()">
+              Ver Horario
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Horario de: {{datos.nombre}} del dia {{datos.dia}}
+          </h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Turno</th>
+                <th>Empieza</th>
+                <th>Finaliza</th>
+                <!-- <th>Cambiar</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of horarios">
+                <td>{{obj.hora.id}}</td>
+                <td>{{obj.hora.Horainicio}}</td>
+                <td>{{obj.hora.Horafin}}</td>
+                <!-- <td>
+                  <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="editar(obj.id)">
+                    <i class="fas fa-pencil-alt"></i>
+                  </button>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

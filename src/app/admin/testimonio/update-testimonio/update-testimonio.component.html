@@ -1,0 +1,43 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            CLiente
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="col-12">
+            <form id="formNewTestimonio" class="was-validated" name="formNewTestimonio">
+              <div class="form-group">
+                <label class="form-col-form-label" for="Testimonio">
+                  <strong>
+                    Poner el testimonio
+                  </strong>
+                </label>
+                <br>
+                <textarea class="w-100" name="Testimonio" id="Testimonio" cols="30" rows="10" [(ngModel)]="testimonio.Testimonio" required>
+                </textarea>
+                <div class="valid-feedback">
+                  Campo rellenado.
+                </div>
+                <div class="invalid-feedback">
+                  Por favor rellene el campo.
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="col-12">
+                  <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="updateTestimonio()">
+                    Actualizar Testimonio
+                  </button>
+                </div>
+              </div>
+              <br>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

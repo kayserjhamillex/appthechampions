@@ -1,0 +1,25 @@
+<div class="p-3">
+  <div class="row">
+
+    <div class="col-12" *ngFor="let item of chats" (click)="select(item.id)">
+      <div class="py-3 pb-1 mr-3 float-left">
+        <div class="avatar">
+          <img [src]="item.cliente.ImagenCliente" class="img-avatar" alt="...">
+          <span class="avatar-status badge-success"></span>
+        </div>
+      </div>
+      <div>
+        <small class="text-muted">
+          {{item.cliente.Fullname}}
+        </small>
+        <small class="text-muted float-right mt-1">
+          1:52 PM
+        </small>
+      </div>
+      <div class="text-truncate font-weight-bold">
+        Responder
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>

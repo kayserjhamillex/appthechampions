@@ -1,0 +1,55 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="descargar()" type="button" class="btn btn-pill btn-block btn-success">
+            Descargar en PDF
+          </button>
+        </div>
+        <div class="card-body">
+          <div id="parapdf" class="col-12 shadow p-5 mb-2 bg-white rounded rounded-lg border border-light fondo">
+            <div class="col-12 contenido oscuro">
+              <div class="col-12">
+                <div class="col-12 col-lg-3 casillero">
+                    Codigo: {{ticket.id}}
+                </div>
+                <div class="col-12 col-lg-9 casillero">
+                  Fecha Reserva: {{ticket.FechaReserva | date: 'dd-MM-yyyy'}}
+                </div>
+              </div>
+              <br>
+              <br>
+              <div class="row">
+                <div class="col-6">
+                  Cliente: {{ticket.cliente.Fullname}}
+                </div>
+                <div class="col-6">
+                  Pago: S/. {{ticket.Pago}}.00
+                </div>
+              </div>
+              <br>
+              <div class="container">
+                <div class="row">
+                  <div class="col-6 col-md-4 col-lg-3" *ngFor="let item of lositems">
+                    <div class="card">
+                      <div class="card-body">
+                        <i class="far fa-clock w-100"></i>
+                      </div>
+                      <div class="card-footer">
+                        {{item.horario.hora.Horainicio}} - {{item.horario.hora.Horafin}}
+                      </div>
+                    </div>
+                    <h6>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

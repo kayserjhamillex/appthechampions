@@ -1,0 +1,188 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <strong>
+            Editar
+          </strong>
+          <code>
+             Blog
+          </code>
+        </div>
+        <div class="card-body">
+          <form id="formNewAdmin" class="was-validated" name="formNewAdmin">
+            <div class="form-group">
+              <label class="form-col-form-label" for="Titulo">
+                <strong>
+                  Titulo
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Titulo" name="Titulo" [(ngModel)]="blog.Titulo" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Subtitulo">
+                <strong>
+                  Subtitulo
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Subtitulo" name="Subtitulo" [(ngModel)]="blog.Subtitulo" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Resumen">
+                <strong>
+                  Resumen
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Resumen" name="Resumen" [(ngModel)]="blog.Resumen" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Imagendelblog">
+                <strong>
+                  Imagen del blog
+                </strong>
+              </label>
+              <div class="row">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="file"
+                        name="avatar"
+                        #file1
+                        (change)="changeImage()"
+                        accept=".png,.jpg,.jpeg">
+                    </div>
+                    <div class="col-6 d-none">
+                      <button class="btn btn-outline-primary btn-lg btn-block btn-pill" (click)="changeImagen()">
+                        Cambiar imagen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-9">
+                      <input *ngIf="igual1" type="text" class="form-control" id="Imagen" name="Imagen" [(ngModel)]="blog.ImagendelBlog" readonly>
+                    </div>
+                    <div class="col-3">
+                      <img *ngIf="igual1" width="100%" [src]="laurlimagen" alt="icono subido">
+                      <button *ngIf="cambio1" class="btn btn-outline-primary btn-lg btn-block btn-pill" (click)="cambiaso1()">
+                        Cambiar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Videodelblog">
+                <strong>
+                  Video del blog
+                </strong>
+              </label>
+              <div class="row">
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="file"
+                        name="avatar"
+                        #file2
+                        (change)="changeVideo()"
+                        accept=".mp4,.mov,.avi">
+                    </div>
+                    <div class="col-6 d-none">
+                      <button class="btn btn-outline-primary btn-lg btn-block btn-pill" (click)="changeMedia()">
+                        Cambiar video
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-9">
+                      <input *ngIf="igual2" type="text" class="form-control" id="Video" name="Video" [(ngModel)]="blog.VideodelBlog" readonly>
+                    </div>
+                    <div class="col-3">
+                      <img *ngIf="igual2" width="100%" [src]="laurlvideo" alt="Video subido">
+                      <button *ngIf="cambio2" class="btn btn-outline-primary btn-lg btn-block btn-pill" (click)="cambiaso2()">
+                        Cambiar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="updateBlog()">
+                Actualizar
+              </button>
+            </div>
+          </form>
+          <br>
+          <br>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Codigo</th>
+                      <th>Parrafo</th>
+                      <th>  </th>
+                      <th>  </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let obj of parrafos">
+                      <td>{{obj.id}}</td>
+                      <td>{{obj.Parrafo}}</td>
+                      <td>
+                        <button (click)="updateparrafo(obj.id, obj.parrafo)" type="button" class="btn btn-pill btn-block btn-warning">
+                          Editar
+                        </button>
+                      </td>
+                      <td>
+                        <button (click)="delete(obj)" type="button" class="btn btn-pill btn-block btn-danger">
+                          Eliminar
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <button (click)="terminar()" type="button" class="btn btn-pill btn-block btn-success">
+                  Terminar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

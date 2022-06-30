@@ -1,0 +1,44 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Definir Precio
+          </h4>
+        </div>
+        <div class="card-body">
+          <form id="formElprecio" class="was-validated" name="formElprecio">
+            <div class="form-group">
+              <label class="form-col-form-label" for="dato">
+                <strong>
+                  Precio
+                </strong>
+              </label>
+              <input type="text" class="form-control" placeholder="minimo 300" id="dato" name="dato" [(ngModel)]="dato" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="reservar()">
+                  Confirmar Reserva Institucional
+                </button>
+              </div>
+              <div class="col-12" *ngIf="reservado">
+                <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="finalizar()">
+                  Enviar Correo y Ver Boleta
+                </button>
+              </div>
+            </div>
+            <br>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <strong>
+            Chat de:
+          </strong>
+          <code>
+              {{chatmodel1.cliente.Fullname}}
+          </code>
+        </div>
+        <div class="card-body overflow-auto">
+          <div class="conteiner">
+            <div class="row">
+              <div class="col-12" *ngFor="let item of mensajes">
+                <div
+                class="shadow-sm col-10 m-auto p-2 border border-primary rounded text-primary d-flex justify-content-start"
+                *ngIf="item.Direccion === 'izquierda'">
+                  <h3 *ngIf="item.Mensaje.substring(0,5) !== 'https'">
+                    {{item.Mensaje}}
+                  </h3>
+                  <img *ngIf="item.Mensaje.substring(0,5) === 'https'" [src]="item.Mensaje" alt="">
+                </div>
+                <br>
+                <div
+                class="shadow-sm col-10 m-auto p-2 border border-success rounded text-success d-flex justify-content-end"
+                *ngIf="item.Direccion === 'derecha'">
+                  <h3 *ngIf="item.Mensaje.substring(0,5) !== 'https'">
+                    {{item.Mensaje}}
+                  </h3>
+                  <img *ngIf="item.Mensaje.substring(0,5) === 'https'" [src]="item.Mensaje" alt="">
+                </div>
+                <br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer">
+          <form class="was-validated">
+            <div class="row">
+              <div class="col-11">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="Fullname" name="Fullname" [(ngModel)]="mensaje.Mensaje" required>
+                  <div class="valid-feedback">
+                    Campo rellenado.
+                  </div>
+                  <div class="invalid-feedback">
+                    Por favor rellene el campo.
+                  </div>
+                </div>
+              </div>
+              <div class="col-1">
+                <button type="submit" class="btn btn-outline-info btn-lg btn-block btn-pill" (click)="anwerchat(mensaje.Mensaje)">
+                  <i class="far fa-paper-plane"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

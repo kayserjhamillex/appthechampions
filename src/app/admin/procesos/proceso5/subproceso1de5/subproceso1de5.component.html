@@ -1,0 +1,69 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <form id="formSearchCliente" class="was-validated" name="formSearchCliente">
+          <div class="form-group">
+            <label class="form-col-form-label" for="Dato">
+              <strong>
+                Poner el numero de documento o correo
+              </strong>
+            </label>
+            <input type="text" class="form-control" id="Dato" name="Dato" [(ngModel)]="dato" required>
+            <div class="valid-feedback">
+              Campo rellenado.
+            </div>
+            <div class="invalid-feedback">
+              Por favor rellene el campo.
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-12 campo">
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="searchEmailCliente()">
+                Por Correo
+              </button>
+            </div>
+            <div class="col-lg-6 col-12 campo">
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="searchDocCliente()">
+                Documento
+              </button>
+            </div>
+          </div>
+          <br>
+        </form>
+        </div>
+        <div class="card-body">
+          <h2 class="text-center">
+            Cliente: {{cliente.Fullname}}
+          </h2>
+          <br>
+          <table *ngIf="respuesta" class="table">
+            <thead>
+              <tr>
+                <th>Fecha</th>
+                <th>Estado</th>
+                <th>Pago</th>
+                <th>Recepcionista</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of clientbooking">
+                <td>{{obj.FechaReserva | date:'yyyy-MM-dd'}}</td>
+                <td>{{obj.Estado}}</td>
+                <td>{{obj.Pago}}</td>
+                <td>{{obj.admin.Fullname}}</td>
+                <td>
+                  <button (click)="detalles(obj.id)" type="button" class="btn btn-pill btn-block btn-info">
+                    Detalles
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

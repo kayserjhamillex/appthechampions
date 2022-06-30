@@ -1,0 +1,38 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="text-center">
+            Lista de Blogs
+          </h2>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Titulo</th>
+                <th>Subtitulo</th>
+                <th>Resumen</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of blogs">
+                <td>{{obj.Titulo}}</td>
+                <td>{{obj.Subtitulo}}</td>
+                <td>{{obj.Resumen}}</td>
+                <td>
+                  <button (click)="vizualizar(obj.id)" type="button" class="btn btn-pill btn-block btn-info">
+                    Ver Comentarios
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

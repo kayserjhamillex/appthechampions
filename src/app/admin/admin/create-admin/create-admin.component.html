@@ -1,0 +1,67 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <strong>
+            Crear
+          </strong>
+          <code>
+             Admin
+          </code>
+        </div>
+        <div class="card-body">
+          <form class="was-validated">
+            <div class="form-group">
+              <label class="form-col-form-label" for="Fullname">
+                <strong>
+                  Full Name
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Fullname" name="Fullname" [(ngModel)]="admin.Fullname" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Correo">
+                <strong>
+                  Correo
+                </strong>
+              </label>
+              <input type="email" class="form-control" id="Correo" name="Correo" [(ngModel)]="admin.Correo" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Contrasena">
+                <strong>
+                  Password
+                </strong>
+              </label>
+              <input type="password" class="form-control" id="Contrasena" name="Contrasena" [(ngModel)]="admin.Contrasena" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="saveAdmin()">
+                Crear
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

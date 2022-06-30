@@ -1,0 +1,114 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <h2 class="text-center">
+              Datos de la Empresa
+            </h2>
+            <button (click)="editar()" type="button" class="btn btn-pill btn-block btn-success">
+              Editar
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12 col-lg-6 p-2">
+              <h2>
+                Nombre:
+              </h2>
+              <h3>
+                {{empresa.Name}}
+              </h3>
+              <br>
+              <h2>
+                Razon Social:
+              </h2>
+              <h3>
+                {{empresa.RazonSocial}}
+              </h3>
+              <br>
+              <h2>
+                Direccion:
+              </h2>
+              <h3>
+                {{empresa.Direccion}}
+              </h3>
+              <br>
+              <h2>
+                Correo:
+              </h2>
+              <h3>
+                {{empresa.Correo}}
+              </h3>
+              <br>
+              <h2>
+                Celular:
+              </h2>
+              <h3>
+                {{empresa.Celular}}
+              </h3>
+              <br>
+              <h2>
+                Celular 2:
+              </h2>
+              <h3>
+                {{empresa.Celular2}}
+              </h3>
+              <br>
+              <h2>
+                Historia:
+              </h2>
+              <p>
+                {{empresa.Historia}}
+              </p>
+              <br>
+              <h2>
+                Logo:
+              </h2>
+              <br>
+              <img width="100%" [src]="empresa.Logo" [alt]="empresa.Logo">
+              <br>
+            </div>
+            <div class="col-12 col-lg-6 p-2">
+              <h2>
+                Banners:
+              </h2>
+              <h4>
+                Banner 1:
+              </h4>
+              <img width="100%" [src]="empresa.Banner1" [alt]="empresa.Banner1">
+              <br>
+              <h4>
+                Banner 2:
+              </h4>
+              <img width="100%" [src]="empresa.Banner2" [alt]="empresa.Banner2">
+              <br>
+              <h4>
+                Banner 2:
+              </h4>
+              <img width="100%" [src]="empresa.Banner3" [alt]="empresa.Banner3">
+              <br>
+              <h4>
+                Mision:
+              </h4>
+              <p>
+                {{empresa.Mision}}
+              </p>
+              <br>
+              <h4>
+                Vision:
+              </h4>
+              <p>
+                {{empresa.Vision}}
+              </p>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

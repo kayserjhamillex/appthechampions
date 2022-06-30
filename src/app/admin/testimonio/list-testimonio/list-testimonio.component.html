@@ -1,0 +1,35 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Lista de Testimonios
+          </h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Testimonio</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of testimonios">
+                <td>{{obj.cliente.Fullname}}</td>
+                <td>{{obj.Testimonio}}</td>
+                <td>
+                  <button (click)="editar(obj.id)" type="button" class="btn btn-pill btn-block btn-info">
+                    Editar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

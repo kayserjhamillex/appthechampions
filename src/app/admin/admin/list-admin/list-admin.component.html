@@ -1,0 +1,36 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <button (click)="crear()" type="button" class="btn btn-pill btn-block btn-success">Crear</button>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Apellidos y Nombres</th>
+                <th>Correo</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of admin">
+                <td>{{obj.Fullname}}</td>
+                <td>{{obj.Correo}}</td>
+                <td *ngIf="obj.id === 1 || obj.id === 2">
+                  Inaccesible
+                </td>
+                <td *ngIf="obj.id !== 1 && obj.id !== 2">
+                  <button (click)="editar(obj.id)" type="button" class="btn btn-pill btn-block btn-info">
+                    Editar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

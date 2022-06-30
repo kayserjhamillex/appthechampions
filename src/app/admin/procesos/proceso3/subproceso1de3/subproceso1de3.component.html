@@ -1,0 +1,178 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            CLiente
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="col-12" *ngIf="botones">
+            <div class="col-lg-6 campo p-1">
+              <button (click)="buscarcliente()" type="button" class="btn btn-outline-info btn-lg btn-block btn-pill">
+                Buscar
+              </button>
+            </div>
+            <div class="col-lg-6 campo p-1">
+              <button (click)="crearcliente()" type="button" class="btn btn-outline-info btn-lg btn-block btn-pill">
+                Crear
+              </button>
+            </div>
+          </div>
+          <div class="col-12" *ngIf="buscar">
+            <form id="formSearchCliente" class="was-validated" name="formSearchCliente">
+              <div class="form-group">
+                <label class="form-col-form-label" for="Fullname">
+                  <strong>
+                    Poner el numero de documento o correo
+                  </strong>
+                </label>
+                <input type="text" class="form-control" id="Fullname" name="Fullname" [(ngModel)]="dato" required>
+                <div class="valid-feedback">
+                  Campo rellenado.
+                </div>
+                <div class="invalid-feedback">
+                  Por favor rellene el campo.
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="col-lg-6 col-12 campo">
+                  <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="searchEmailCliente()">
+                    Por Correo
+                  </button>
+                </div>
+                <div class="col-lg-6 col-12 campo">
+                  <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="searchDocCliente()">
+                    Documento
+                  </button>
+                </div>
+              </div>
+              <br>
+            </form>
+          </div>
+          <div class="col-12" *ngIf="crear">
+            <form id="formNewCliente" class="was-validated" name="formNewCliente">
+              <div class="form-group">
+                <label class="form-col-form-label" for="Fullname">
+                  <strong>
+                    Apellidos y Nombres
+                  </strong>
+                </label>
+                <input type="text" class="form-control" id="Fullname" name="Fullname" [(ngModel)]="cliente.Fullname" required>
+                <div class="valid-feedback">
+                  Campo rellenado.
+                </div>
+                <div class="invalid-feedback">
+                  Por favor rellene el campo.
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-col-form-label" for="Numerodocumento">
+                  <strong>
+                    Numero de documento
+                  </strong>
+                </label>
+                <input type="text" class="form-control" id="Numerodocumento" name="Numerodocumento" [(ngModel)]="cliente.Numerodocumento" required>
+                <div class="valid-feedback">
+                  Campo rellenado.
+                </div>
+                <div class="invalid-feedback">
+                  Por favor rellene el campo.
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-col-form-label" for="Genero">
+                  <strong>
+                    Genero
+                  </strong>
+                </label>
+                <select name="Genero" id="Genero" class="form-control" (change)="cambiarimagen($event.target.value)">
+                  <option value="" disabled>
+                    Seleccione un Genero
+                  </option>
+                  <option *ngFor="let obj of genero" [value]="obj.name">
+                      {{obj.name}}
+                  </option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-col-form-label" for="Correo">
+                  <strong>
+                    Correo
+                  </strong>
+                </label>
+                <input type="email" class="form-control" id="Correo" name="Correo" [(ngModel)]="cliente.Email" required>
+                <div class="valid-feedback">
+                  Campo rellenado.
+                </div>
+                <div class="invalid-feedback">
+                  Por favor rellene el campo.
+                </div>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="saveCliente()">
+                  Agregar
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-12" *ngIf="datoscliente">
+            <div>
+              <h4 class="text-center">
+                Datos:
+              </h4>
+            </div>
+            <div class="text-center">
+              <h3>
+                Apellidos y Nombres:
+              </h3>
+              <h3>
+                {{cliente1.Fullname}}
+              </h3>
+              <h3>
+                Correo:
+              </h3>
+              <h3>
+                {{cliente1.Email}}
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Servicios
+          </h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Precio</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of fields">
+                <td>{{obj.Name}}</td>
+                <td>s/. {{obj.Precio1}}.00</td>
+                <td>s/. {{obj.Precio2}}.00</td>
+                <td>
+                  <button (click)="atencion(obj.id)" type="button" class="btn btn-pill btn-block btn-info">
+                    Atencion
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

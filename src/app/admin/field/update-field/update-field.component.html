@@ -1,0 +1,172 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <strong>
+            Editar
+          </strong>
+          <code>
+             Field
+          </code>
+        </div>
+        <div class="card-body">
+          <form class="was-validated">
+            <div class="form-group">
+              <label class="form-col-form-label" for="Name">
+                <strong>
+                  Nombre
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Name" name="Name" [(ngModel)]="field.Name" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Precio1">
+                <strong>
+                  Precio de Noche
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Precio1" name="Precio1" [(ngModel)]="field.Precio1" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Precio2">
+                <strong>
+                  Precio de Dia
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Precio2" name="Precio2" [(ngModel)]="field.Precio2" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Resumen">
+                <strong>
+                  Resumen
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Resumen" name="Resumen" [(ngModel)]="field.Resumen" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Descripcion">
+                <strong>
+                  Descripcion
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="Descripcion" name="Descripcion" [(ngModel)]="field.Descripcion" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Iconofield">
+                <strong>
+                  Icono del field
+                </strong>
+              </label>
+              <div class="row">
+                <div class="col-12" >
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="file"
+                        name="avatar"
+                        #file1
+                        (change)="changeIcono()"
+                        accept=".png,.jpg,.jpeg">
+                    </div>
+                    <div class="col-6 d-none">
+                      <button class="btn btn-outline-primary btn-lg btn-block btn-pill" (click)="changeIco()">
+                        Cambiar imagen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-9">
+                      <input *ngIf="igual1" type="text" class="form-control" id="IconoField" name="IconoField" [(ngModel)]="field.IconoField" readonly>
+                    </div>
+                    <div class="col-3">
+                      <img *ngIf="igual1" width="100%" [src]="laurlicono" alt="IconoField subido">
+                      <button *ngIf="cambio1" class="btn btn-outline-primary btn-lg btn-block btn-pill" (click)="cambiaso1()">
+                        Cambiar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-col-form-label" for="Imagenfield">
+                <strong>
+                  Imagen del field
+                </strong>
+              </label>
+              <div class="row">
+                <div class="col-12" >
+                  <div class="row">
+                    <div class="col-6">
+                      <input type="file"
+                        name="avatar"
+                        #file2
+                        (change)="changeImagen()"
+                        accept=".png,.jpg,.jpeg">
+                    </div>
+                    <div class="col-6 d-none">
+                      <button class="btn btn-outline-primary btn-lg btn-block btn-pill" (click)="changeImg()">
+                        Cambiar imagen
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-9">
+                      <input *ngIf="igual2" type="text" class="form-control" id="ImagenField" name="ImagenField" [(ngModel)]="field.ImagenField" readonly>
+                    </div>
+                    <div class="col-3">
+                      <img *ngIf="igual2" width="100%" [src]="laurlimagen" alt="banner 1 subido">
+                      <button *ngIf="cambio2" class="btn btn-outline-primary btn-lg btn-block btn-pill" (click)="cambiaso2()">
+                        Cambiar
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="updateField()">
+                Update
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

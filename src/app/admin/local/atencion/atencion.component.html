@@ -1,0 +1,81 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <strong>
+            Atender la
+          </strong>
+          <code>
+            Reserva
+          </code>
+        </div>
+        <div class="card-body">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <form id="formSearch" class="was-validated" name="formSearch">
+                  <div class="form-group">
+                    <label class="form-col-form-label" for="dato">
+                      <strong>
+                        Codigo
+                      </strong>
+                    </label>
+                    <input type="text" class="form-control" id="dato" name="dato" [(ngModel)]="dato" required>
+                    <div class="valid-feedback">
+                      Campo rellenado.
+                    </div>
+                    <div class="invalid-feedback">
+                      Por favor rellene el campo.
+                    </div>
+                  </div>
+                  <div>
+                    <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="buscar(dato)">
+                      Buscar
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <br>
+              <br>
+              <div class="col-12" *ngIf="lareserva">
+                <div class="col-12 contenido oscuro">
+                  <div class="col-12">
+                    <div class="col-12 col-lg-3">
+                        Codigo: {{ticket.id}}
+                    </div>
+                    <div class="col-12 col-lg-9">
+                      Estado: {{ticket.Estado}}
+                    </div>
+                  </div>
+                  <br>
+                  <div class="col-12">
+                    Cliente: {{ticket.cliente.Fullname}}
+                  </div>
+                  <br>
+                  <div class="col-12">
+                    Fecha Reserva: {{ticket.FechaReservaLocal | date: 'dd-MM-yyyy'}}
+                  </div>
+                  <br>
+                  <div class="col-12">
+                    <div class="col-12">
+                      Pago: S/. {{ticket.Pago}}.00
+                    </div>
+                    <div class="col-12">
+                      Total: S/. {{ticket.Total}}.00
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-12"*ngIf="lareserva">
+                <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="actualizar()">
+                  Antender
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

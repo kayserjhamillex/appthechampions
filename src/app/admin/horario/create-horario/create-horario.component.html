@@ -1,0 +1,88 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Elegir Cancha
+          </h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of fields">
+                <td>{{obj.Name}}</td>
+                <td>
+                  <button (click)="elejir(obj.id)" type="button" class="btn btn-pill btn-block btn-success">
+                    Elejir
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Dia Elegido
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="col-12">
+            <div class="col-lg-6 wasa p-1" *ngFor="let obj of dias">
+              <button (click)="diaelegido(obj.name)" type="button" class="btn btn-pill btn-block btn-success">
+                {{obj.name}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Vista Previa
+          </h4>
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Dia</th>
+                <th>Field</th>
+                <th>Hora</th>
+                <th>  </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of previo">
+                <td>{{obj.Dia}}</td>
+                <td>{{obj.FieldId}}</td>
+                <td>{{obj.HoraId}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="col-12 p-1">
+            <button (click)="limpiar()" type="button" class="btn btn-pill btn-block btn-success">
+              Limpiar
+            </button>
+          </div>
+          <div class="col-12 p-1">
+            <button (click)="finalizar()" type="button" class="btn btn-pill btn-block btn-success">
+              Finalizar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

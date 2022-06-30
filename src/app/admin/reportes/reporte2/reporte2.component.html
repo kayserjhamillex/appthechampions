@@ -1,0 +1,101 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <h1 class="text-center">
+            Cliente que mas aporta
+          </h1>
+        </div>
+        <div class="card-body">
+          <form id="formReport1" class="was-validated" name="formReport1">
+            <div class="row">
+              <div class="form-group col">
+                <label class="form-col-form-label" for="Fullname">
+                  <strong>
+                    Fecha Inicio
+                  </strong>
+                </label>
+                <input type="date" class="form-control" id="Fullname" name="Fullname" [(ngModel)]="parametros.Fechastart" required>
+                <div class="valid-feedback">
+                  Campo rellenado.
+                </div>
+                <div class="invalid-feedback">
+                  Por favor rellene el campo.
+                </div>
+              </div>
+              <div class="form-group col">
+                <label class="form-col-form-label" for="Fullname">
+                  <strong>
+                    Fecha Fin
+                  </strong>
+                </label>
+                <input type="date" class="form-control" id="Fullname" name="Fullname" [(ngModel)]="parametros.Fechaend" required>
+                <div class="valid-feedback">
+                  Campo rellenado.
+                </div>
+                <div class="invalid-feedback">
+                  Por favor rellene el campo.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="Vizualizartablas()">
+                  Ver Reporte en Tablas
+                </button>
+              </div>
+              <div class="col">
+                <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="Vizualizargrafico()">
+                  Ver Reporte en Grafico
+                </button>
+              </div>
+            </div>
+          </form>
+          <br>
+          <br>
+          <div  class="container text-center text-danger" *ngIf="sinfechas">
+            <h6 class="font-weight-bold">
+              *Por favor elija las fechas para vizualizar el reporte
+            </h6>
+          </div>
+          <div id="repo2" class="container" *ngIf="reportetablas">
+            <div class="row">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Trabajador</th>
+                    <th>Atenciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let obj of reporte">
+                    <td>{{obj.administrador}}</td>
+                    <td>{{obj.cantidad}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12" *ngIf="reportetablas">
+              <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="onPrint()">
+                Imprimir
+              </button>
+            </div>
+          </div>
+          <div id="repo2part2" class="row" *ngIf="reportegrafico">
+            <p-chart class="w-100" type="doughnut" [data]="datarepo"></p-chart>
+          </div>
+          <div class="row" *ngIf="reportegrafico">
+            <div class="col-12">
+              <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="onPrint2()">
+                Imprimir
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

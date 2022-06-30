@@ -1,0 +1,111 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <strong>
+            Confirmar la
+          </strong>
+          <code>
+            Reserva
+          </code>
+        </div>
+        <div class="card-body">
+          <form id="formSearch" class="was-validated" name="formSearch">
+            <div class="form-group">
+              <label class="form-col-form-label" for="dato">
+                <strong>
+                  Codigo
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="dato" name="dato" [(ngModel)]="dato" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="buscar(dato)">
+                Buscar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            Pago por Completar
+          </h4>
+          <h6 *ngIf="lareserva">
+            Por pagar: s/. {{money}}.00
+          </h6>
+        </div>
+        <div class="card-body">
+          <form id="formconfirm" class="was-validated" name="formconfirm">
+            <div class="form-group">
+              <label class="form-col-form-label" for="parametrito">
+                <strong>
+                  Pago
+                </strong>
+              </label>
+              <input type="text" class="form-control" id="parametrito" name="parametrito" [(ngModel)]="parametrito" required>
+              <div class="valid-feedback">
+                Campo rellenado.
+              </div>
+              <div class="invalid-feedback">
+                Por favor rellene el campo.
+              </div>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="confirm(dato)">
+                Buscar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-12" *ngIf="laboleta">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="text-center">
+            La boleta
+          </h4>
+        </div>
+        <div class="card-body">
+          <div class="col-12 contenido oscuro">
+            <div class="col-12">
+              <div class="col-12 col-lg-3">
+                  Codigo: {{ticket.id}}
+              </div>
+              <div class="col-12 col-lg-9">
+                Estado: {{ticket.Estado}}
+              </div>
+            </div>
+            <br>
+            <div class="col-12">
+              Cliente: {{ticket.cliente.Fullname}}
+            </div>
+            <br>
+            <div class="col-12">
+              Fecha Reserva: {{ticket.FechaReservaLocal | date: 'dd-MM-yyyy'}}
+            </div>
+            <br>
+            <div class="col-12">
+              <div class="col-12">
+                Pago: S/. {{ticket.Pago}}.00
+              </div>
+              <div class="col-12">
+                Total: S/. {{ticket.Total}}.00
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>

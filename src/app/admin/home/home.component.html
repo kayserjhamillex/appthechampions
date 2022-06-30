@@ -1,0 +1,81 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="card">
+        <div class="card-header">
+          <div class="col-12 col-md-6 cuadrillos p-1" *ngFor="let obj of fields">
+            <div>
+              <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="fieldsselected(obj.id)">
+                {{obj.Name}}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h4 class="text-center">
+              Lista de Clientes de Hoy
+            </h4>
+          </div>
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Cliente</th>
+                  <th>Pago</th>
+                  <th>Estado</th>
+                  <th>Detalles</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let obj of reservasfiltradas">
+                  <td>{{obj.cliente.Fullname}}</td>
+                  <td>{{obj.Pago}}</td>
+                  <td>{{obj.Estado}}</td>
+                  <td>
+                    <button type="submit" class="btn btn-outline-warning btn-lg btn-block btn-pill" (click)="details(obj.id)">
+                      <i class="fas fa-info-circle"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-lg-4">
+      <div class="card">
+        <div class="card-header">
+          <h4>
+            Detalles
+          </h4>
+        </div>
+        <div class="card-body">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Entrada</th>
+                  <th>Salida</th>
+                  <th>Atendido</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let obj of detalles">
+                  <td>{{obj.horario.hora.Horainicio}}</td>
+                  <td>{{obj.horario.hora.Horafin}}</td>
+                  <td>
+                    <button type="submit" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="atender(obj.id)">
+                      <i class="fas fa-check"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

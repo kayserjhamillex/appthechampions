@@ -1,0 +1,45 @@
+<div class="animated fadeIn">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          <strong>
+            Lista
+          </strong>
+          <code>
+             Chats
+          </code>
+        </div>
+        <div class="card-body">
+          <div class="p-3" *ngFor="let item of chats">
+            <div class="message">
+              <div class="py-3 pb-5 mr-3 float-left">
+                <div class="avatar">
+                  <img [src]="item.cliente.ImagenCliente" class="img-avatar" alt="">
+                  <span *ngIf="item.Estado === 'responder'" class="avatar-status badge-success"></span>
+                  <span *ngIf="item.Estado === 'enviado'" class="avatar-status badge-info"></span>
+                  <span *ngIf="item.Estado === 'bienvenida'" class="avatar-status badge-warning"></span>
+                </div>
+              </div>
+              <div>
+                <small class="text-muted">
+                  Cliente: {{item.cliente.Fullname}}
+                </small>
+                <small class="text-muted float-right mt-1">
+                  Fecha Creacion: {{item.FechaCreacion | date: 'dd-MM-yyyy'}}
+                </small>
+              </div>
+              <div class="text-truncate font-weight-bold btn" (click)="select(item.id)">
+                Responder
+              </div>
+              <small class="text-muted">
+                Estado: {{item.Estado}}
+              </small>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
