@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalService {
-  public apiUrlGlobal = 'http://fieldsport.herokuapp.com';
+  public apiUrlGlobal = 'https://fieldsport.herokuapp.com';
   constructor() { }
 }
