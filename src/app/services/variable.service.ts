@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalService {
-  public apiUrlGlobal = 'https://clinic-pain.herokuapp.com';
+  public apiUrlGlobal = 'http://fieldsport.herokuapp.com';
   constructor() { }
 }
