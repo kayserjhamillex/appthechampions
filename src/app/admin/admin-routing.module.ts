@@ -44,7 +44,6 @@ import { Reporte3Component } from './reportes/reporte3/reporte3.component';
 import { Reporte4Component } from './reportes/reporte4/reporte4.component';
 import { Reporte5Component } from './reportes/reporte5/reporte5.component';
 import { Reporte6Component } from './reportes/reporte6/reporte6.component';
-import { ListReportesComponent } from './reportes/list-reportes/list-reportes.component';
 // componentes local
 import { AtencionComponent } from './local/atencion/atencion.component';
 import { ReservacionComponent } from './local/reservacion/reservacion.component';
@@ -77,6 +76,7 @@ import { Subproceso3de7Component } from './procesos/proceso7/subproceso3de7/subp
 import { Subproceso1de8Component } from './procesos/proceso8/subproceso1de8/subproceso1de8.component';
 import { Subproceso2de8Component } from './procesos/proceso8/subproceso2de8/subproceso2de8.component';
 import { Subproceso1de9Component } from './procesos/proceso9/subproceso1de9/subproceso1de9.component';
+import { ListReportesComponent } from './reportes/lst-reportes/list-reportes.component';
 
 
 const routes: Routes = [

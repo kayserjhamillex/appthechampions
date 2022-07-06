@@ -5,7 +5,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmpresaService } from 'src/app/services/empresa.service';
 import { IconoUploadService } from 'src/app/services/icono.service';
 import { ImageUploadService } from 'src/app/services/imagen.service';
-import { ProfileUploadService } from 'src/app/services/imagepriv.service';
+import { ProfileUploadService } from 'src/app/services/imagenpriv.service';
 
 @Component({
   selector: 'app-update-empresa',

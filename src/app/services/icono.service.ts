@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class IconoUploadService {
   // URL = 'https://fileuploadjxdesign.herokuapp.com/upload-icono';
@@ -17,7 +17,4 @@ export class IconoUploadService {
     // retornamos la data del servidor
     return this.http.post(`${this.URL}`, formData);
   }
-
-
 }
-

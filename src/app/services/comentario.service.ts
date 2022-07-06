@@ -38,6 +38,4 @@ export class ComentarioService {
     return this.http.put(`${this.apiUrl}/update/${id}`, updatedcomentario);
   }
 
-
-
 }

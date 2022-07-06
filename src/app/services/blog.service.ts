@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GlobalService } from './variable.service';
 
+
 @Injectable({
   providedIn: 'root'
 })

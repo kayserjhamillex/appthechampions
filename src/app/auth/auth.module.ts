@@ -28,6 +28,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 // para corregir el error del refresheo
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
+
 @NgModule({
   declarations: [
     AuthComponent,
@@ -52,6 +53,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     PerfectScrollbarModule,
     ToastrModule.forRoot(),
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    {
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    }
+  ],
 })
 export class AuthModule { }

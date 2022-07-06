@@ -18,7 +18,7 @@ export class AdminService {
     private global: GlobalService
   ) { }
 
-  loggin(client) {
+  loggin(client: Object) {
     const cli = JSON.stringify(client);
     this.client.next(client);
     localStorage.setItem('admin', cli);

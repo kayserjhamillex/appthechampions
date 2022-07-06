@@ -68,5 +68,4 @@ export class ReservaService {
   getReservaDia(lafecha: string) {
     return this.http.get(`${this.apiUrldominio}/thechampions/report/escritorio/${lafecha}`);
   }
-
 }

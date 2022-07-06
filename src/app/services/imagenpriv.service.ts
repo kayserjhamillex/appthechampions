@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProfileUploadService {
   URLlogosmall = 'https://vicky-uploadfile.herokuapp.com/smalllogo';
@@ -39,5 +39,4 @@ export class ProfileUploadService {
   //   // retornamos la data del servidor
   //   return this.http.post(`${this.URLlogolarge}`, formData);
   // }
-
 }

@@ -4,6 +4,7 @@ import { Empresa } from '../models/empresa';
 import { HttpClient } from '@angular/common/http';
 import { GlobalService } from './variable.service';
 
+
 @Injectable({
   providedIn: 'root'
 })

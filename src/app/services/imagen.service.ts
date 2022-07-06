@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ImageUploadService {
   // URL = 'https://fileuploadjxdesign.herokuapp.com/upload-images';
@@ -18,4 +18,3 @@ export class ImageUploadService {
     return this.http.post(`${this.URL}`, formData);
   }
 }
-

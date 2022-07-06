@@ -37,5 +37,4 @@ export class EligvService {
   updateEligv(id: string|number, updatedEligv: Eligv): Observable<Eligv> {
     return this.http.put(`${this.apiUrl}/update/${id}`, updatedEligv);
   }
-
 }

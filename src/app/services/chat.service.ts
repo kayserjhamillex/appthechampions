@@ -41,7 +41,4 @@ export class ChatService {
   updateChat(id: string|number, updatedChat: Chat): Observable<Chat> {
     return this.http.put(`${this.apiUrl}/update/${id}`, updatedChat);
   }
-
-
-
 }

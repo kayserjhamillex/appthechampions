@@ -48,12 +48,12 @@ export class AdminComponent implements OnInit {
       const client = JSON.parse(localStorage.getItem('admin'));
       console.log(client);
       this.adminService.loggin(client);
-      this.router.navigate(
-        [
-          'admin',
-          'home'
-        ]
-      );
+      // this.router.navigate(
+      //   [
+      //     'admin',
+      //     'home'
+      //   ]
+      // );
     } else {
       this.router.navigate(
         [
