@@ -55,7 +55,8 @@
               </div>
             </div>
             <div>
-              <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="updateAdmin()">
+              <button type="button" class="btn btn-outline-success btn-lg btn-block btn-pill" (click)="updateAdmin()"
+              [disabled]="(admin.Fullname === '' ||  admin.Correo === '' ||  admin.Contrasena === '')? true:false">
                 Actualizar
               </button>
             </div>

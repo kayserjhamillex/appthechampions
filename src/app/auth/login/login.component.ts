@@ -55,17 +55,27 @@ export class LoginComponent implements OnInit {
     const parametro2 = this.parametro.contra;
     console.log(parametro1);
     console.log(parametro2);
-    this.adminService.getlogin(parametro1, parametro2).subscribe(res => {
-      if (res) {
-        this.adminService.loggin(res);
-        // this.router.navigate(['admin', 'home']);
-        this.toastr.success('Bienvenido Admin');
-      } else {
-        this.toastr.error('Usuario y Contraseña incorrecto');
-      }
-    }, err => {
-      console.log(err);
-    });
+    if (parametro1 !== '' && parametro2 !== '') {
+      this.adminService.getlogin(parametro1, parametro2).subscribe(
+        res => {
+          if (res) {
+            this.adminService.loggin(res);
+            this.router.navigate(['admin', 'home']);
+            this.toastr.success('Bienvenido Admin');
+          } else {
+            this.toastr.error('Usuario y Contraseña incorrecto');
+          }
+        }, err => {
+          console.log(err);
+        }
+      );
+    } else if (parametro1 === '' && parametro2 !== '') {
+      this.toastr.warning('Introducir usuario');
+    } else if (parametro1 !== '' && parametro2 === '') {
+      this.toastr.warning('Introducir contraseña');
+    } else if (parametro1 === '' && parametro2 === '') {
+      this.toastr.warning('Introducir usuario y contraseña');
+    }
   }
   // tslint:disable-next-line: typedef
   recover() {

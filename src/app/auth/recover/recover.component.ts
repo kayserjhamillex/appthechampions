@@ -62,51 +62,55 @@ export class RecoverComponent implements OnInit {
       console.log(clave);
     }
     console.log(this.correo);
-    this.adminService.getSearch(this.correo).subscribe(
-      res => {
-        if (res) {
-          this.admin = res;
-          const codigo = this.admin.id.toString();
-          console.log(this.laclave);
-          this.admin.Bandera = 'activado';
-          this.admin.Codigo = this.laclave;
-          this.adminService.updateAdminrecover(codigo, this.admin).subscribe(
-            recover => {
-              if (recover !== null) {
-                this.mensaje = recover;
-                this.adminService.getRecover(codigo).subscribe(
-                  // tslint:disable-next-line: no-shadowed-variable
-                  res => {
-                    this.respuesta = res;
-                    this.toastr.success('Por favor Confirme la actualizacion en su correo');
-                    this.router.navigate(
-                      [
-                        'auth',
-                        'password',
-                        codigo
-                      ]
-                    );
-                  },
-                  err => {
-                    this.toastr.error('No se pudo enviar el Correo');
-                  }
-                );
-              } else {
-                this.toastr.warning('No se pudo actualizar');
-              }
+    if (this.correo !== '') {
+      this.adminService.getSearch(this.correo).subscribe(
+        res => {
+          if (res) {
+            this.admin = res;
+            const codigo = this.admin.id.toString();
+            console.log(this.laclave);
+            this.admin.Bandera = 'activado';
+            this.admin.Codigo = this.laclave;
+            this.adminService.updateAdminrecover(codigo, this.admin).subscribe(
+              recover => {
+                if (recover !== null) {
+                  this.mensaje = recover;
+                  this.adminService.getRecover(codigo).subscribe(
+                    // tslint:disable-next-line: no-shadowed-variable
+                    res => {
+                      this.respuesta = res;
+                      this.toastr.success('Por favor Confirme la actualizacion en su correo');
+                      this.router.navigate(
+                        [
+                          'auth',
+                          'password',
+                          codigo
+                        ]
+                      );
+                    },
+                    err => {
+                      this.toastr.error('No se pudo enviar el Correo');
+                    }
+                  );
+                } else {
+                  this.toastr.warning('No se pudo actualizar');
+                }
 
-            },
-            error => {
-              console.log('Error Api');
-            }
-          )
-        } else {
-          this.toastr.error('Correo no es de la empresa');
+              },
+              error => {
+                console.log('Error Api');
+              }
+            )
+          } else {
+            this.toastr.error('Correo no pertenece la empresa');
+          }
+        },
+        err => {
+          console.log(err);
         }
-      },
-      err => {
-        console.log(err);
-      }
-    );
+      );
+    } else {
+      this.toastr.warning('Por favor introducir correo');
+    }
   }
 }

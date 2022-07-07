@@ -1,5 +1,4 @@
 import { ToastrService } from 'ngx-toastr';
-import { Admin } from 'src/app/models/admin';
 import { Recover } from 'src/app/models/recover';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -39,29 +38,38 @@ export class PasswordComponent implements OnInit {
   actualizar() {
     const params = this.activatedRoute.snapshot.params;
     const codigo = params.id;
-    this.adminrecover.Contrasena = this.parametro.contra1;
-    this.adminrecover.Bandera = 'desactivado';
-    this.adminrecover.Codigo = '123456789';
-    if (this.parametro.contra1 === this.parametro.contra2) {
-      console.log(this.adminrecover);
-      this.adminService.updateAdminrecover(codigo, this.adminrecover).subscribe(
-        res => {
-          this.mss = res;
-          this.toastr.success('Contraseña actualizada');
-          this.router.navigate(
-            [
-              'auth',
-              'login'
-            ]
-          );
-        },
-        err => {
-          this.toastr.error('no se pudo actualizar');
-        }
-      );
-    } else {
-      this.toastr.error('la repeticion de la contraseña es diferente');
+    if (this.parametro.contra1 !== '' && this.parametro.contra2 !== '') {
+      this.adminrecover.Contrasena = this.parametro.contra1;
+      this.adminrecover.Bandera = 'desactivado';
+      this.adminrecover.Codigo = '123456789';
+      if (this.parametro.contra1 === this.parametro.contra2) {
+        console.log(this.adminrecover);
+        this.adminService.updateAdminrecover(codigo, this.adminrecover).subscribe(
+          res => {
+            this.mss = res;
+            this.toastr.success('Contraseña actualizada');
+            this.router.navigate(
+              [
+                'auth',
+                'login'
+              ]
+            );
+          },
+          err => {
+            this.toastr.error('no se pudo actualizar');
+          }
+        );
+      } else {
+        this.toastr.error('la repeticion de la contraseña es diferente');
+      }
+    } else if (this.parametro.contra1 === '' && this.parametro.contra2 !== '') {
+      this.toastr.warning('Ingresar ambas campos');
+    } else if (this.parametro.contra1 !== '' && this.parametro.contra2 === '') {
+      this.toastr.warning('Ingresar ambas campos');
+    } else if (this.parametro.contra1 === '' && this.parametro.contra2 === '') {
+      this.toastr.warning('Ingresar las contraseña');
     }
+
   }
   ngOnInit(): void {
     const params = this.activatedRoute.snapshot.params;
@@ -84,11 +92,15 @@ export class PasswordComponent implements OnInit {
   }
   comprobar(par) {
     console.log(par);
-    if (this.adminrecover.Codigo === par) {
-      this.toastr.info('ponga su nueva contra');
-      this.confirmado = true;
+    if (par !== '') {
+      if (this.adminrecover.Codigo === par) {
+        this.toastr.info('Confirmacion: ponga su nueva contra');
+        this.confirmado = true;
+      } else {
+        this.toastr.warning('Codigo incorrecto');
+      }
     } else {
-      this.toastr.warning('Codigo incorrecto');
+      this.toastr.warning('Por favor introduzca el código');
     }
   }
 }

@@ -13,6 +13,7 @@ export class AdminService {
   client$ = this.client.asObservable();
   apiUrl = this.global.apiUrlGlobal + '/admin';
   apiUrldominio = this.global.apiUrlGlobal + '/live';
+  public losadmins: any = [];
   constructor(
     private http: HttpClient,
     private global: GlobalService

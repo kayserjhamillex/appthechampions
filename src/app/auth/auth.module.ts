@@ -51,7 +51,11 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     TabsModule.forRoot(),
     ChartsModule,
     PerfectScrollbarModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 15000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     {
